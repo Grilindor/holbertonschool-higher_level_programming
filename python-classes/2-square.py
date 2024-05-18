@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+
+"""
+class definition of 'Square'
+"""
+
 class Square:
     """ a defined square"""
     def __init__(self, size):
