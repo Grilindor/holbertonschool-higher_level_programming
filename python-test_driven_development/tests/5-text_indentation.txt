@@ -1,0 +1,49 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text_indentation([])
+Traceback (most recent call last):
+TypeError: text must be a string
+
+>>> text_indentation({})
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> text_indentation("123")
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> text_indentation(".")
+.
+<BLANKLINE>
+
+>>> text_indentation(":")
+:
+<BLANKLINE>
+
+>>> text_indentation("?")
+?
+<BLANKLINE>
+
+>>> text_indentation("taco?")
+taco?
+<BLANKLINE>
+
+>>> text_indentation(" ")
+
+>>> text_indentation("")
+
+>>> text_indentation("for    ?    ")
+for    ?
+<BLANKLINE>
+
+>>> text_indentation("     IN SPACE     :")
+IN SPACE     :
+<BLANKLINE>
+
+>>> text_indentation("test:  dans?  le     vide.")
+test:
+<BLANKLINE>
+dans?
+<BLANKLINE>
+le     vide.
+<BLANKLINE>
