@@ -24,10 +24,10 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        # Check if value is an integer
+        """Check if value is an integer"""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        # Check if value is greater than or equal to 0
+        """Check if value is greater than or equal to 0"""
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__width = value
@@ -38,10 +38,10 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        # Check if value is an integer
+        """Check if value is an integer"""
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
-        # Check if value is greater than or equal to 0
+        """Check if value is greater than or equal to 0"""
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
@@ -50,13 +50,13 @@ class Rectangle:
         return self.width * self.height
 
     def perimeter(self):
-        # return perimeter of rectangle
+        """return perimeter of rectangle"""
         if self.width == 0 or self.height == 0:
             return 0
         return 2 * (self.height + self.width)
 
-# print the rectangle with the character #
     def __str__(self):
+        """print the rectangle with the character"""
         if self.__width == 0 or self.__height == 0:
             return ""
 
