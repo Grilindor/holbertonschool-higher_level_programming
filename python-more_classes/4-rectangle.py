@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Contains an class definition of 'Square'"""
+""" Contains a class definition of 'Rectangle' """
+
+from typing import Any
 
 
 class Rectangle:
@@ -14,8 +16,10 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
+        # Check if value is an integer
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
+        # Check if value is greater than or equal to 0
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__width = value
@@ -26,8 +30,10 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
+        # Check if value is an integer
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
+        # Check if value is greater than or equal to 0
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
@@ -36,6 +42,18 @@ class Rectangle:
         return self.width * self.height
 
     def perimeter(self):
+        # return perimeter of rectangle
         if self.width == 0 or self.height == 0:
             return 0
         return 2 * (self.height + self.width)
+
+# print the rectangle with the character #
+    def __str__(self):
+        if self.__width == 0 or self.__height == 0:
+            return ""
+
+        else:
+            for i in range(self.__height):
+                for j in range(self.height - 1):
+                    print('#' * self.__width)
+                return '#' * self.width
