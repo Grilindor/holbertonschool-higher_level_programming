@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """ Contains a class definition of 'Rectangle' """
 
-from typing import Any
-
 
 class Rectangle:
     """a defined rectangle"""
