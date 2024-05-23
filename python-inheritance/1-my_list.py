@@ -8,5 +8,5 @@ class MyList(list):
     def print_sorted(self):
         for append in self:
             if not isinstance(append, int):
-                raise TypeError("not all elements in it are integer")
+                raise TypeError("not all elements type int")
         print(sorted(self))
