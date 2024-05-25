@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Create a class named VerboseList that extends the Python list class"""
+
+
 class VerboseList(list):
     def append(self, item):
         super().append(item)
@@ -15,5 +18,5 @@ class VerboseList(list):
     def pop(self, index=-1):
         item = super().pop(index)
         print("Popped [{}] from the list.".format(item))
-
+        return item
 
