@@ -35,3 +35,15 @@ class Rectangle(Shape):
 def shape_info(shape):
     print("Area:", shape.area())
     print("Perimeter:", shape.perimeter())
+
+# Test cases
+if __name__ == "__main__":
+    circle = Circle(5)
+    rectangle = Rectangle(4, 6)
+
+    print("Circle info:")
+    shape_info(circle)
+    print()
+
+    print("Rectangle info:")
+    shape_info(rectangle)
