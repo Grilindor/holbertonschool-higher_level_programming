@@ -11,4 +11,8 @@ import json
 
 def class_to_json(obj):
     """return dictionnari of all objet"""
-    return obj.__dict__
+    dictionary = {}
+    if hasattr(obj, "__dict__"):
+        dictionary = obj.__dict__.copy()
+
+    return dictionary
