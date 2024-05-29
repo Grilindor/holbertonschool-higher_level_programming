@@ -1,5 +1,6 @@
-#!/usr/bin/env python3
-from task_03_xml import serialize_to_xml, deserialize_from_xml
+#!/usr/bin/python3
+xml_serialize = __import__('03-xml')
+
 
 def main():
     sample_dict = {
