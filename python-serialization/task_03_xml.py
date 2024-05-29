@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 
 
 def serialize_to_xml(data, filename):
-    """need"""
+    """Deserialize an XML file into a Python dictionaryneed"""
     root = ET.Element('data')
 
     def dict_to_xml(element, data):
@@ -21,6 +21,7 @@ def serialize_to_xml(data, filename):
     tree = ET.ElementTree(root)
     tree.write(filename)
 
+
 def deserialize_from_xml(filename):
     tree = ET.parse(filename)
     root = tree.getroot()
@@ -28,15 +29,11 @@ def deserialize_from_xml(filename):
     def xml_to_dict(element):
         result = {}
         for child in element:
-            if len(child) == 0:
-                try:
-                    """Convert to int if possible"""
-                    result[child.tag] = int(child.text)
-                except ValueError:
-                    """Return as string if conversion fails"""
-                    result[child.tag] = child.text
-            else:
+            if len(child):
+                """Convert to int if possible"""
                 result[child.tag] = xml_to_dict(child)
+            else:
+                result[child.tag] = child.text
         return result
 
     return xml_to_dict(root)
