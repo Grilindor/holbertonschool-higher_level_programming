@@ -6,15 +6,16 @@ import xml.etree.ElementTree as ET
 
 
 def serialize_to_xml(data, filename):
-    """need"""
+    """Serialize a Python dictionary into an XML file"""
     root = ET.Element('data')
 
     def dict_to_xml(element, data):
         for key, value in data.items():
-            child = ET.SubElement(element, key)
             if isinstance(value, dict):
+                child = ET.SubElement(element, key)
                 dict_to_xml(child, value)
             else:
+                child = ET.SubElement(element, key)
                 child.text = str(value)
 
     dict_to_xml(root, data)
