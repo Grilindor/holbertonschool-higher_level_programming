@@ -10,9 +10,7 @@ import json
 def fetch_and_print_posts():
     """Fetching posts from JSONPlaceholder and printing titles"""
     r = requests.get('https://jsonplaceholder.typicode.com/posts')
-
     print(f"Status Code: {r.status_code}")
-
     if r.status_code == 200:
         posts = r.json()
         for post in posts:
