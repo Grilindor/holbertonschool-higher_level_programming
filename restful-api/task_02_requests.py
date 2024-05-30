@@ -4,6 +4,7 @@
 
 import csv
 import requests
+import json
 
 
 def fetch_and_print_posts():
