@@ -3,7 +3,7 @@
 
 
 from flask import Flask
-from flask import jsonify
+from flask import jsonify, request
 
 """Dictionary containing users, with a test user jane"""
 users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
@@ -39,9 +39,13 @@ def status():
 """Route to return details of a specific user"""
 
 
-@app.route('/users/')
+@app.route('/users/<username>')
 def get_user(username):
-    return jsonify(users.get(username, "User not found"))
+    user = users.get(username)
+    if user:
+        return jsonify(user)
+    else:
+        return jsonify({"error": "Utilisateur non trouvé"}), 404
 
 
 """Route to add a new user via a POST request"""
@@ -49,14 +53,19 @@ def get_user(username):
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
-    """Get JSON data from the request"""
-    new_user = request.get_json()
-    username = new_user.get('username')
-    """Add the new user to the users dictionary"""
-    users[username] = new_user
-    """Return a confirmation message with the added user's data"""
-    return jsonify({"message": "User added", "user": new_user})
+    data = request.get_json()
+    username = data.get('username')
+    if username in users:
+        return jsonify({"error": "L'utilisateur existe déjà"}), 400
 
+    user = {
+        "username": username,
+        "name": data.get('name'),
+        "age": data.get('age'),
+        "city": data.get('city')
+    }
+    users[username] = user
+    return jsonify({"message": "Utilisateur ajouté", "user": user})
 
 """execut application Flask"""
 
