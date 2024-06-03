@@ -1,4 +1,5 @@
 FROM alpine
 
-# print string with doker
-CMD ["echo", "Hello, World!"]
+RUN apk add --no-cache curl
+COPY config.txt /app/config.txt
+CMD ["/bin/sh"]
