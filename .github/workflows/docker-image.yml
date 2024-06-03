@@ -1,0 +1,17 @@
+name: Construction et Déploiement de l'Image Docker
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le Répertoire
+        uses: actions/checkout@v2
+      - name: Construire l'Image Docker
+        run: docker build . -t ghcr.io/grilindor/holbertonschool_higher_level_programming:latest
+      - name: Connexion au Registre des Conteneurs GitHub
+        run: echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+      - name: Pousser l'Image Docker
+        run: docker push ghcr.io/grilindor/holbertonschool_higher_level_programming:latest
