@@ -5,6 +5,7 @@
 import MySQLdb
 import sys
 
+
 def list_states_N():
     # Retrieve command line arguments
     mysql_username = sys.argv[1]
@@ -18,7 +19,7 @@ def list_states_N():
                          db=database_name,
                          port=3306)
 
-        # Create a cursor to interact with the database
+    # Create a cursor to interact with the database
     cursor = db.cursor()
 
     # Execute the SQL query to retrieve states starting with N sorted by id
