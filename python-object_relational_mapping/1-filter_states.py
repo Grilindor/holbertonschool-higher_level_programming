@@ -23,7 +23,8 @@ def list_states_N():
     cursor = db.cursor()
 
     # Execute the SQL query to retrieve states starting with N sorted by id
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    cursor.execute("""SELECT * FROM states WHERE BINARY name
+                   LIKE 'N%' ORDER BY id ASC""")
 
     # Fetch all the results
     states = cursor.fetchall()
