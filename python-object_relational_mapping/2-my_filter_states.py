@@ -25,7 +25,9 @@ def list_states():
     cursor = db.cursor()
 
     # Execute the SQL query to retrieve states sorted by id
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    cursor.execute(
+        """SELECT * FROM states WHERE name = '{}'
+        ORDER BY id ASC""".format(state_name_searched))
 
     # Fetch all the results
     states = cursor.fetchall()
