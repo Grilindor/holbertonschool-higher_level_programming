@@ -26,10 +26,10 @@ def list_cities():
 
     # Execute the SQL query to retrieve cities where
     # state name matches the argument safely
-    request = ("SELECT cities.id, cities.name "
-             "FROM cities JOIN states ON cities.state_id = states.id "
-             "WHERE BINARY states.name = %s "
-             "ORDER BY cities.id ASC")
+    request = ("""SELECT cities.id, cities.name
+             FROM cities JOIN states ON cities.state_id = states.id
+             WHERE BINARY states.name = %s
+             ORDER BY cities.id ASC""")
     cursor.execute(request, (state_name_searched,))
 
     # Fetch and display all the results
