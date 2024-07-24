@@ -1,4 +1,4 @@
-// select the html
+// select element header
 const header = document.querySelector('header');
 
 // change the color of header for read
