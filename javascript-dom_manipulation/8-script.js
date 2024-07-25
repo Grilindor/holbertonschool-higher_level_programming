@@ -1,4 +1,4 @@
-function fetchHelloTranslation() {
+document.addEventListener('DOMContentLoaded',function() {
   const url = 'https://hellosalut.stefanbohacek.dev/?lang=fr';
 
   fetch(url)
@@ -9,4 +9,4 @@ function fetchHelloTranslation() {
       helloElement.textContent = helloTranslation;
     })
     .catch(error => console.error('Error:', error));
-}
+});
