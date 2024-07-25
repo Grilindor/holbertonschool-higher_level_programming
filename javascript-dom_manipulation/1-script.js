@@ -1,11 +1,11 @@
-// select the element with the id red_header
-const headerredbutton = document.getElementById('red_header');
+// Select the element with the id red_header
+const redHeaderButton = document.getElementById('red_header');
 
-// add clic event
-headerredbutton.addEventListener('clic', function() {
-  // select element header
-  const header = document.querySelector('header');
+// Add click event
+redHeaderButton.addEventListener('click', function() {
+    // Select element header
+    const headerItem = document.querySelector('header');
 
-  // change the color of header for read
-  header.style.color = '#FF0000';
+    // Change the color of header to red
+    headerItem.style.color = '#FF0000';
 });
